@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-const { Schema, model } = mongoose;
+
+const { Schema } = mongoose;
 
 const movieSchema = new Schema({
     poster: String,
@@ -7,6 +8,10 @@ const movieSchema = new Schema({
     year: String,
     seen: String,
     comment: String,
+    genre: String,
 })
 
-export default model('Movies', movieSchema);
+module.exports = mongoose.model('Movies', movieSchema);
+
+export default movieSchema;
+

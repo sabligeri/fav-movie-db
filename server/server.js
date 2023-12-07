@@ -22,6 +22,7 @@ app.post('/api/favmovies', (req, res) => {
     year,
     seen,
     comment,
+    genre,
   });
   movieList.save()
       .then(movies => res.json(movies))

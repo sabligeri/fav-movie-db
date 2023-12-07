@@ -5,12 +5,13 @@ const MoviesTable = ({ movies }) => {
     const poster = movie.Poster;
     const title = movie.Title;
     const year = movie.Year;
+    const genre = movie.Genre;
     fetch('/api/favmovies', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ poster, title, year })
+      body: JSON.stringify({ poster, title, year, genre })
     })
       .then(response => response.json())
       .then(response => {
@@ -29,6 +30,7 @@ const MoviesTable = ({ movies }) => {
                 <img src={(movie.Poster !== 'N/A') ? movie.Poster : './src/noMoviePoster.jpg'} />
                 <h3> {movie.Title} </h3>
                 <h4> {movie.Year}</h4>
+                <h4> {movie.Genre} </h4>
                 <button onClick={() => handleSaveToFavMovies(movie)}>Add to favorites</button>
               </th>
             )
